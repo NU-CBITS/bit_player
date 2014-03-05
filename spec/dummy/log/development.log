@@ -1,0 +1,114 @@
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentModules (20140305201138)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (13.5ms)[0m  [1mCREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140305201138"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (115.4ms)[0m  [1mDROP DATABASE IF EXISTS "dummy_test"[0m
+  [1m[35m (334.3ms)[0m  CREATE DATABASE "dummy_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.5ms)[0m  CREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140305201138')
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentProviders (20140305201505)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (10.9ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_bit_player_content_providers_on_content_module_id" ON "bit_player_content_providers" ("content_module_id")
+  [1m[36m (2.0ms)[0m  [1m ALTER TABLE bit_player_content_providers
+ ADD CONSTRAINT fk_content_providers_modules
+ FOREIGN KEY (content_module_id)
+ REFERENCES content_modules(id)
+[0m
+PG::UndefinedTable: ERROR:  relation "content_modules" does not exist
+:           ALTER TABLE bit_player_content_providers
+            ADD CONSTRAINT fk_content_providers_modules
+            FOREIGN KEY (content_module_id)
+            REFERENCES content_modules(id)
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentProviders (20140305201505)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_bit_player_content_providers_on_content_module_id" ON "bit_player_content_providers" ("content_module_id")
+  [1m[36m (1.7ms)[0m  [1m ALTER TABLE bit_player_content_providers
+ ADD CONSTRAINT fk_content_providers_modules
+ FOREIGN KEY (content_module_id)
+ REFERENCES content_modules(id)
+[0m
+PG::UndefinedTable: ERROR:  relation "content_modules" does not exist
+:           ALTER TABLE bit_player_content_providers
+            ADD CONSTRAINT fk_content_providers_modules
+            FOREIGN KEY (content_module_id)
+            REFERENCES content_modules(id)
+
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentProviders (20140305201629)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.2ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.7ms)[0m  CREATE INDEX "index_bit_player_content_providers_on_content_module_id" ON "bit_player_content_providers" ("content_module_id")
+  [1m[36m (4.5ms)[0m  [1m ALTER TABLE bit_player_content_providers
+ ADD CONSTRAINT fk_content_providers_modules
+ FOREIGN KEY (content_module_id)
+ REFERENCES bit_player_content_modules(id)
+[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140305201629"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (119.1ms)[0m  [1mDROP DATABASE IF EXISTS "dummy_test"[0m
+  [1m[35m (244.6ms)[0m  CREATE DATABASE "dummy_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_bit_player_content_providers_on_content_module_id" ON "bit_player_content_providers" USING btree ("content_module_id")
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140305201629')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140305201138')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentModules (20140305231316)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+PG::DuplicateTable: ERROR:  relation "bit_player_content_modules" already exists
+: CREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBitPlayerContentModules (20140305231316)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (16.2ms)[0m  [1mCREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140305231316"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBitPlayerContentProviders (20140305231317)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "bit_player_content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "content_module_index" ON "bit_player_content_providers" ("bit_player_content_module_id")
+  [1m[36m (19.2ms)[0m  [1m ALTER TABLE bit_player_content_providers
+ ADD CONSTRAINT fk_content_providers_modules
+ FOREIGN KEY (bit_player_content_module_id)
+ REFERENCES bit_player_content_modules(id)
+[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140305231317"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (118.8ms)[0m  [1mDROP DATABASE IF EXISTS "dummy_test"[0m
+  [1m[35m (256.0ms)[0m  CREATE DATABASE "dummy_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.3ms)[0m  CREATE TABLE "bit_player_content_modules" ("id" serial primary key, "title" character varying(255) NOT NULL, "context" character varying(255) NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "bit_player_content_providers" ("id" serial primary key, "type" character varying(255) NOT NULL, "source_content_type" character varying(255), "source_content_id" integer, "bit_player_content_module_id" integer NOT NULL, "position" integer DEFAULT 1 NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "content_module_index" ON "bit_player_content_providers" USING btree ("bit_player_content_module_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140305231317')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140305231316')[0m
