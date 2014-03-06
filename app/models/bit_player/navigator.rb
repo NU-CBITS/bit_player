@@ -56,7 +56,7 @@ module BitPlayer
       @status.context = content_module.context
       @status.module_position = content_module.position
       if options[:provider_id]
-        @status.provider_position = content_module.providers.find(options[:provider_id]).position
+        @status.provider_position = content_module.content_providers.find(options[:provider_id]).position
       else
         @status.provider_position = 1
       end
