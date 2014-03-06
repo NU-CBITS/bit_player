@@ -14,7 +14,7 @@ module BitPlayer
     end
 
     def slide(position)
-      slideshow.slides.where(position: position).first || Slide.new(body: 'no slides')
+      slideshow.slides.where(position: position).first || BitPlayer::Slide.new(body: 'no slides')
     end
 
     def exists?(position)
