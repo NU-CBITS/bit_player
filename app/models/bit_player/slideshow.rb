@@ -6,7 +6,7 @@ module BitPlayer
       foreign_key: :bit_player_slideshow_id,
       dependent: :destroy,
       inverse_of: :slideshow
-    has_one :bit_player_content_provider, as: :source_content, inverse_of: :source_content
+    has_one :content_provider, as: :source_content, inverse_of: :source_content
 
     validates :title, presence: true
 
