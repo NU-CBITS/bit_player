@@ -1,3 +1,3 @@
-= BitPlayer
+# BitPlayer
 
-This project rocks and uses MIT-LICENSE.
+    gem install bit-player
