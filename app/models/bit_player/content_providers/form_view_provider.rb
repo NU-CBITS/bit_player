@@ -1,5 +1,5 @@
 module BitPlayer
-  module ContentProviders::ViewProvider
+  module ContentProviders::FormViewProvider
     def self.included(base)
       base.class_eval do
         def self.data_class(klass)
@@ -23,8 +23,8 @@ module BitPlayer
         end
 
         def self.view_type(type)
-          unless ["show", "index"].include?(type)
-            fail("view type must be one of 'show', 'index'")
+          unless ["new", "edit"].include?(type)
+            fail("view type must be one of 'new', 'edit'")
           end
           @view_type = type
         end

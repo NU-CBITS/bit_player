@@ -1,7 +1,9 @@
+require "redcarpet"
+
 module BitPlayer
   class Slide < ActiveRecord::Base
     belongs_to :slideshow,
-      class_name: 'BitPlayer::Slideshow',
+      class_name: "BitPlayer::Slideshow",
       foreign_key: :bit_player_slideshow_id,
       inverse_of: :slides
 

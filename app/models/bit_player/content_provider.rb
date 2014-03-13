@@ -3,7 +3,7 @@ module BitPlayer
     include BitPlayer::ContentProviders::ViewProvider
 
     belongs_to :content_module,
-      class_name: 'BitPlayer::ContentModule',
+      class_name: "BitPlayer::ContentModule",
       foreign_key: :bit_player_content_module_id,
       inverse_of: :content_providers
     belongs_to :source_content, polymorphic: true

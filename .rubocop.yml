@@ -1,0 +1,31 @@
+AllCops:
+  Excludes:
+    - bin/**
+    - db/schema.rb
+    - lib/**
+    - spec/dummy/**
+
+Documentation:
+  Exclude:
+    - db/**
+    - spec/**
+
+FinalNewline:
+  Enabled: false
+
+IfUnlessModifier:
+  Enabled: false
+
+LineLength:
+  Exclude:
+    - db/**
+
+MethodLength:
+  Exclude:
+    - db/**
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+WordArray:
+  Enabled: false

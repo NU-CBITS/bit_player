@@ -10,7 +10,7 @@ class CreateBitPlayerContentProviders < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :bit_player_content_providers, :bit_player_content_module_id, name: 'content_module_index'
+    add_index :bit_player_content_providers, :bit_player_content_module_id, name: "content_module_index"
 
     reversible do |dir|
       dir.up do

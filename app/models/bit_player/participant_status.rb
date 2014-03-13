@@ -7,7 +7,7 @@ module BitPlayer
       self.module_position = 1
       self.provider_position = 1
       self.content_position = 1
-    
+
       save
     end
 

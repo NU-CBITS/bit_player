@@ -1,7 +1,7 @@
 module BitPlayer
   class ContentModule < ActiveRecord::Base
     has_many :content_providers,
-      class_name: 'BitPlayer::ContentProvider',
+      class_name: "BitPlayer::ContentProvider",
       foreign_key: :bit_player_content_module_id,
       inverse_of: :content_module
 

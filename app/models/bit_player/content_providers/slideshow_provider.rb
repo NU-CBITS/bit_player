@@ -6,7 +6,7 @@ module BitPlayer
 
     def render_current(options)
       options.view_context.render(
-        template: 'slides/show',
+        template: "slides/show",
         locals: {
           slide: slide(options.position)
         }
@@ -14,7 +14,7 @@ module BitPlayer
     end
 
     def slide(position)
-      slideshow.slides.where(position: position).first || BitPlayer::Slide.new(body: 'no slides')
+      slideshow.slides.where(position: position).first || BitPlayer::Slide.new(body: "no slides")
     end
 
     def exists?(position)
