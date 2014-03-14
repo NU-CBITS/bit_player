@@ -12,9 +12,14 @@ module BitPlayer
     validates_uniqueness_of :position, scope: :bit_player_slideshow_id
 
     def render_body
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
+      rendered = ""
 
-      markdown.render(body).html_safe
+      if !body.nil?
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
+        rendered += markdown.render(body).html_safe
+      end
+
+      rendered
     end
 
     def self.update_positions(ids)
