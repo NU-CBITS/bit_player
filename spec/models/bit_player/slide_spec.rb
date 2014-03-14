@@ -13,5 +13,11 @@ describe BitPlayer::Slide do
 
       expect(slide.render_body).to match(/<h1>header<\/h1>/)
     end
+
+    it "should escape html" do
+      slide.body = "<div>my content</div>"
+
+      expect(slide.render_body).to match(/<p>my content<\/p>/)
+    end
   end
 end

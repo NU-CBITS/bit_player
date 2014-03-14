@@ -15,11 +15,17 @@ module BitPlayer
       rendered = ""
 
       if !body.nil?
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
-        rendered += markdown.render(body).html_safe
+        markdown = Redcarpet::Markdown.new(
+          Redcarpet::Render::HTML.new(
+            filter_html: true,
+            safe_links_only: true
+          ),
+          space_after_headers: true,
+        )
+        rendered += markdown.render(body)
       end
 
-      rendered
+      rendered.html_safe
     end
 
     def self.update_positions(ids)
