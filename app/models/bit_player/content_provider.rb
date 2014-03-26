@@ -1,11 +1,12 @@
 module BitPlayer
+  # Modeled after the presenter pattern. Ties data layer to view layer.
   class ContentProvider < ActiveRecord::Base
     include BitPlayer::ContentProviders::ViewProvider
 
     belongs_to :content_module,
-      class_name: "BitPlayer::ContentModule",
-      foreign_key: :bit_player_content_module_id,
-      inverse_of: :content_providers
+               class_name: "BitPlayer::ContentModule",
+               foreign_key: :bit_player_content_module_id,
+               inverse_of: :content_providers
     belongs_to :source_content, polymorphic: true
 
     validates :content_module, :position, presence: true

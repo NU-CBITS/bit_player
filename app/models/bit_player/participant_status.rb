@@ -1,4 +1,5 @@
 module BitPlayer
+  # Persistent data representing the Participant's navigation state.
   class ParticipantStatus < ActiveRecord::Base
     belongs_to :participant
 

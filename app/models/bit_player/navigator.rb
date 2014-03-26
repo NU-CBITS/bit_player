@@ -1,6 +1,9 @@
 module BitPlayer
+  # Business rules for proceeding statefully through an application.
   class Navigator
-    RenderOptions = Struct.new(:view_context, :app_context, :position, :participant)
+    RenderOptions = Struct.new(
+      :view_context, :app_context, :position, :participant
+    )
 
     def initialize(participant)
       @participant = participant
@@ -24,7 +27,9 @@ module BitPlayer
     end
 
     def render_current_content(view_context)
-      options = RenderOptions.new(view_context, context, content_position, @participant)
+      options = RenderOptions.new(
+        view_context, context, content_position, @participant
+      )
 
       current_content_provider.render_current(options)
     end
@@ -55,10 +60,10 @@ module BitPlayer
       content_module = ContentModule.find(options[:module_id])
       @status.context = content_module.context
       @status.module_position = content_module.position
+      @status.provider_position = 1
       if options[:provider_id]
-        @status.provider_position = content_module.content_providers.find(options[:provider_id]).position
-      else
-        @status.provider_position = 1
+        @status.provider_position = content_module.content_providers
+          .find(options[:provider_id]).position
       end
       @status.content_position = [options[:content_position].to_i, 1].max
       @status.save

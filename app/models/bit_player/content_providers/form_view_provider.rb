@@ -1,13 +1,19 @@
+require "active_support/concern"
+
 module BitPlayer
-  module ContentProviders::FormViewProvider
-    def self.included(base)
-      base.class_eval do
+  module ContentProviders
+    # Presentation logic for a "new" or "edit" view on a data model.
+    module FormViewProvider
+      extend ActiveSupport::Concern
+
+      included do
         def self.data_class(klass)
           @source_class = klass
         end
 
         def self.source_class
-          @source_class || fail("Classes inheriting from #{ self } must define a source class with `data_class <class>`")
+          @source_class || fail("Classes inheriting from #{ self } must define
+                                a source classwith `data_class <class>`")
         end
 
         def self.show_nav_link
@@ -33,20 +39,20 @@ module BitPlayer
           @view_type
         end
       end
-    end
 
-    def show_nav_link?
-      self.class.show_nav_link?
-    end
+      def show_nav_link?
+        self.class.show_nav_link?
+      end
 
-    def template
-      "#{ plural_name }/#{ self.class.get_view_type }"
-    end
+      def template
+        "#{ plural_name }/#{ self.class.get_view_type }"
+      end
 
-    private
+      private
 
-    def plural_name
-      self.class.source_class.to_s.underscore.pluralize
+      def plural_name
+        self.class.source_class.to_s.underscore.pluralize
+      end
     end
   end
 end

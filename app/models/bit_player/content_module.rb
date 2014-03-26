@@ -1,9 +1,10 @@
 module BitPlayer
+  # A logical unit of content, possibly containing mixed provider types.
   class ContentModule < ActiveRecord::Base
     has_many :content_providers,
-      class_name: "BitPlayer::ContentProvider",
-      foreign_key: :bit_player_content_module_id,
-      inverse_of: :content_module
+             class_name: "BitPlayer::ContentProvider",
+             foreign_key: :bit_player_content_module_id,
+             inverse_of: :content_module
 
     validates :title, :context, :position, presence: true
     validates_numericality_of :position, greater_than_or_equal_to: 1

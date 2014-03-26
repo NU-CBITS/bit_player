@@ -5,6 +5,9 @@ AllCops:
     - lib/**
     - spec/dummy/**
 
+AccessorMethodName:
+  Enabled: false
+
 Documentation:
   Exclude:
     - db/**
@@ -26,6 +29,9 @@ MethodLength:
 
 StringLiterals:
   EnforcedStyle: double_quotes
+
+TrivialAccessors:
+  Enabled: false
 
 WordArray:
   Enabled: false
