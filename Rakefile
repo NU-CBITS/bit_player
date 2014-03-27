@@ -18,8 +18,11 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task default: :spec
 
+task :test do
+  puts `cd spec/dummy; RAILS_ENV=test rake db:drop db:create db:migrate; cd ../..; rspec`
+end
 
 Bundler::GemHelper.install_tasks
 

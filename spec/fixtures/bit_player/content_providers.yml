@@ -1,0 +1,11 @@
+home_landing_slideshow:
+  content_module: home_landing
+  position: 1
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  #source_content: home_intro (BitPlayer::Slideshow)
+
+home_module_2_slideshow:
+  content_module: home_module_2
+  position: 1
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  #source_content: home_intro (BitPlayer::Slideshow)

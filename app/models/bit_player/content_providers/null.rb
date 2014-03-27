@@ -2,8 +2,11 @@ module BitPlayer
   module ContentProviders
     # The default provider.
     class Null
-      def initialize(content_module)
+      attr_reader :position
+
+      def initialize(content_module, position)
         @content_module = content_module
+        @position = position
       end
 
       def render_current(options)

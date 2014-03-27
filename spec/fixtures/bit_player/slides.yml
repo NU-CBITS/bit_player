@@ -1,0 +1,17 @@
+slide1:
+  slideshow: slideshow1
+  position: 1
+  title: Slide 1
+  body: lorem...
+
+slide2:
+  slideshow: slideshow1
+  position: 2
+  title: Slide 2
+  body: lorem...
+
+slide3:
+  slideshow: slideshow1
+  position: 3
+  title: Slide 3
+  body: lorem...

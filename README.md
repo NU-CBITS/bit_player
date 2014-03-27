@@ -5,3 +5,7 @@
 ## Installation
 
     gem install bit-player
+
+## Run tests
+
+    rake test

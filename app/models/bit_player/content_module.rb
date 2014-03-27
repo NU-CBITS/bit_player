@@ -7,12 +7,12 @@ module BitPlayer
              inverse_of: :content_module
 
     validates :title, :context, :position, presence: true
-    validates_numericality_of :position, greater_than_or_equal_to: 1
-    validates_uniqueness_of :position, scope: :context
+    validates :position, numericality: { greater_than_or_equal_to: 1 }
+    validates :position, uniqueness: { scope: :context }
 
     def provider(position)
       content_providers.where(position: position).first ||
-        BitPlayer::ContentProviders::Null.new(self)
+        BitPlayer::ContentProviders::Null.new(self, position)
     end
 
     def provider_exists?(position)

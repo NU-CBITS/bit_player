@@ -4,25 +4,23 @@ module BitPlayer
     belongs_to :participant
 
     def initialize_context(name)
-      self.context = name
-      self.module_position = 1
-      self.provider_position = 1
-      self.content_position = 1
-
-      save
+      update(
+        context: name,
+        module_position: 1,
+        provider_position: 1,
+        content_position: 1
+      )
     end
 
     def increment_content_position
-      self.content_position += 1
-
-      save
+      update(content_position: content_position + 1)
     end
 
     def increment_provider_position
-      self.provider_position += 1
-      self.content_position = 1
-
-      save
+      update(
+        provider_position: provider_position + 1,
+        content_position: 1
+      )
     end
   end
 end
