@@ -58,7 +58,7 @@ module BitPlayer
 
     def initialize_location(options)
       content_module = ContentModule.find(options[:module_id])
-      @status.context = content_module.context
+      @status.context = content_module.tool.title
       @status.module_position = content_module.position
       @status.provider_position = 1
       if options[:provider_id]
@@ -72,7 +72,10 @@ module BitPlayer
     def current_module
       @current_module ||= nil
 
-      module_attrs = { context: context, position: module_position }
+      module_attrs = {
+        bit_player_tool_id: Tool.find_by_title(context).try(:id),
+        position: module_position
+      }
 
       if current_module_stale?
         @current_module = ContentModule.where(module_attrs).first
@@ -85,7 +88,7 @@ module BitPlayer
 
     def current_module_stale?
       @current_module.nil? ||
-        (@current_module.context != context ||
+        (@current_module.tool.try(:title) != context ||
          @current_module.position != module_position)
     end
   end

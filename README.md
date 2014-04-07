@@ -9,3 +9,7 @@
 ## Run tests
 
     rake test
+
+## Build the gem
+
+    rake build

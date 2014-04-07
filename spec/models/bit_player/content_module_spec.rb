@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe BitPlayer::ContentModule do
-  fixtures :"bit_player/content_modules", :"bit_player/content_providers"
+  fixtures :"bit_player/tools", :"bit_player/content_modules",
+           :"bit_player/content_providers"
 
   describe "#provider" do
     it "should return the Null Provider when one is not found" do

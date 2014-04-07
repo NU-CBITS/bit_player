@@ -12,9 +12,17 @@ describe BitPlayer::Navigator do
   end
   let(:participant) { double("participant", navigation_status: status) }
   let(:view_context) { double("context", current_participant: participant) }
+  let(:provider) { double("provider") }
+  let(:nav) { BitPlayer::Navigator.new(participant) }
 
-  it "should render the content from the current provider" do
-    nav = BitPlayer::Navigator.new(participant)
-    expect(nav.render_current_content(view_context)).to match(/Oops/)
+  before do
+    expect(BitPlayer::Tool).to receive(:find_by_title)
+      .and_return(double("tool", id: 1))
+  end
+
+  describe "#render_current_content" do
+    it "should render the content from the current provider" do
+      expect(nav.render_current_content(view_context)).to match(/Oops/)
+    end
   end
 end

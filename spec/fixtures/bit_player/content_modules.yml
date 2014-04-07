@@ -1,9 +1,9 @@
 home_landing:
   title: Landing 
-  context: home
+  tool: home
   position: 1
 
 home_module_2:
   title: "But wait, there's more"
-  context: home
+  tool: home
   position: 2
