@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bit_player (0.2.0)
+    bit_player (0.2.1)
       rails (~> 4.0)
 
 GEM
