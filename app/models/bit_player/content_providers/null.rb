@@ -15,7 +15,11 @@ module BitPlayer
       end
 
       def show_nav_link?
-        true
+        false
+      end
+
+      def exists?(position)
+        false
       end
     end
   end
