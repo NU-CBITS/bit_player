@@ -22,5 +22,15 @@ module BitPlayer
     def provider_exists?(position)
       content_providers.exists?(position: position)
     end
+
+    def add_content_provider(type)
+      content_providers.create(type: type, position: last_position + 1)
+    end
+
+    private
+
+    def last_position
+      content_providers.order(:position).last.try(:position) || 0
+    end
   end
 end
