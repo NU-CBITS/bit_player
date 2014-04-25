@@ -4,15 +4,9 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-require 'rdoc/task'
+APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
 
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'BitPlayer'
-  rdoc.options << '--line-numbers'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+load "rails/tasks/engine.rake"
 
 require 'rspec/core/rake_task'
 
@@ -21,7 +15,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 task :test do
-  puts `cd spec/dummy; RAILS_ENV=test rake db:drop db:create db:migrate; cd ../..; rspec`
+  puts `RAILS_ENV=test rake app:db:drop app:db:create app:db:migrate; rspec`
 end
 
 Bundler::GemHelper.install_tasks
