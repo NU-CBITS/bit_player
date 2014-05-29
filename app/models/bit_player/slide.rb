@@ -38,10 +38,9 @@ module BitPlayer
     protected
 
     def push_to_be_deleted_slide_to_end
-      slideshow = self.slideshow
       slide_ids = slideshow.slide_ids
-      slide_ids.delete(self.id)
-      slide_ids.push(self.id)
+      slide_ids.delete(id)
+      slide_ids.push(id)
       slideshow.slides.update_positions(slide_ids)
     end
 
