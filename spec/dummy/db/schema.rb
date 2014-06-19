@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402225703) do
+ActiveRecord::Schema.define(version: 20140619200219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20140402225703) do
     t.integer  "position",                     default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "template_path"
+    t.string   "data_class_name"
+    t.text     "data_attributes"
+    t.boolean  "show_next_nav"
+    t.text     "locals"
   end
 
   add_index "bit_player_content_providers", ["bit_player_content_module_id"], name: "content_module_index", using: :btree
