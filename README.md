@@ -1,14 +1,13 @@
 # BitPlayer
 
-[![Build Status](https://travis-ci.org/nupmmarkbegale/bit_player.png?branch=master)](https://travis-ci.org/nupmmarkbegale/bit_player)
-
 ## Installation
 
     gem install bit-player
 
 ## Run tests
 
-    rake test
+    bin/rake app:db:drop app:db:create app:db:migrate RAILS_ENV=test
+    bin/rspec
 
 ## Build the gem
 
