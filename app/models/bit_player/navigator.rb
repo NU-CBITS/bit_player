@@ -1,3 +1,5 @@
+require "bit_core"
+
 module BitPlayer
   # Business rules for proceeding statefully through an application.
   class Navigator
@@ -57,7 +59,7 @@ module BitPlayer
     end
 
     def initialize_location(options)
-      content_module = ContentModule.find(options[:module_id])
+      content_module = BitCore::ContentModule.find(options[:module_id])
       @status.context = content_module.tool.title
       @status.module_position = content_module.position
       @status.provider_position = 1
@@ -73,15 +75,15 @@ module BitPlayer
       @current_module ||= nil
 
       module_attrs = {
-        bit_player_tool_id: Tool.find_by_title(context).try(:id),
+        bit_core_tool_id: BitCore::Tool.find_by_title(context).try(:id),
         position: module_position
       }
 
       if current_module_stale?
-        @current_module = ContentModule.where(module_attrs).first
+        @current_module = BitCore::ContentModule.where(module_attrs).first
       end
 
-      @current_module ||= ContentModule.new(module_attrs)
+      @current_module ||= BitCore::ContentModule.new(module_attrs)
     end
 
     private

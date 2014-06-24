@@ -1,4 +1,5 @@
 require "spec_helper"
+require "bit_core"
 
 describe BitPlayer::Navigator do
   let(:status) do
@@ -16,7 +17,7 @@ describe BitPlayer::Navigator do
   let(:nav) { BitPlayer::Navigator.new(participant) }
 
   before do
-    expect(BitPlayer::Tool).to receive(:find_by_title)
+    expect(BitCore::Tool).to receive(:find_by_title)
       .and_return(double("tool", id: 1))
   end
 

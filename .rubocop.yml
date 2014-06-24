@@ -1,31 +1,30 @@
 AllCops:
   Exclude:
-    - bin/**
-    - db/schema.rb
-    - lib/**
-    - spec/dummy/**
+    - bit_player.gemspec
+    - Rakefile
+    - bin/**/*
+    - db/**/*
+    - lib/**/*
+    - spec/dummy/**/*
 
 AccessorMethodName:
   Enabled: false
 
 Documentation:
   Exclude:
-    - db/**
-    - spec/**
-
-FinalNewline:
-  Enabled: false
+    - db/**/*
+    - spec/**/*
 
 IfUnlessModifier:
   Enabled: false
 
 LineLength:
   Exclude:
-    - db/**
+    - db/**/*
 
 MethodLength:
   Exclude:
-    - db/**
+    - db/**/*
 
 StringLiterals:
   EnforcedStyle: double_quotes
