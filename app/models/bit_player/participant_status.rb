@@ -12,6 +12,10 @@ module BitPlayer
       )
     end
 
+    def decrement_content_position
+      update(content_position: content_position - 1)
+    end
+
     def increment_content_position
       update(content_position: content_position + 1)
     end
