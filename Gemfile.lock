@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bit_player (0.4.3)
+    bit_player (0.4.4)
       bit_core (~> 1.1)
       rails (~> 4.1)
 
