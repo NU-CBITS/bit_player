@@ -54,6 +54,16 @@ module BitPlayer
       end
     end
 
+    def fetch_previous_content
+      if current_content_provider.exists?(content_position - 1)
+        @status.decrement_content_position
+      end
+    end
+
+    def previous_content?
+      current_content_provider.exists?(content_position - 1)
+    end
+
     def initialize_context(context)
       @status.initialize_context(context)
     end
