@@ -29,7 +29,7 @@ module BitPlayer
         end
 
         def self.view_type(type)
-          unless ["show", "index"].include?(type)
+          unless %w( show index ).include?(type)
             fail("view type must be one of 'show', 'index'")
           end
           @view_type = type

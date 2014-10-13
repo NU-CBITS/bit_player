@@ -1,4 +1,5 @@
 module BitPlayer
+  # Mountable application.
   class Engine < ::Rails::Engine
     isolate_namespace BitPlayer
 

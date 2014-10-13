@@ -29,7 +29,7 @@ module BitPlayer
         end
 
         def self.view_type(type)
-          unless ["new", "edit"].include?(type)
+          unless %w( new edit ).include?(type)
             fail("view type must be one of 'new', 'edit'")
           end
           @view_type = type

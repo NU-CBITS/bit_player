@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "A Rails engine for presenting a BIT web application"
   s.description = "A Rails engine for presenting a BIT web application"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.test_files = Dir["spec/**/*"]
 
