@@ -18,4 +18,18 @@ require 'rspec/core/rake_task'
 desc "Run all specs in spec directory (excluding plugin specs)"
 RSpec::Core::RakeTask.new(:spec => "app:db:test:prepare")
 
-task :default => :spec
+require 'rubocop/rake_task'
+
+RuboCop::RakeTask.new
+
+desc 'Run Brakeman'
+task :brakeman do
+  dir = File.dirname(__FILE__)
+  puts `#{ File.join(dir, 'bin', 'brakeman') } #{ File.join(dir, '.') }`
+end
+
+task :default do
+  Rake::Task['rubocop'].invoke
+  Rake::Task['brakeman'].invoke
+  Rake::Task['spec'].invoke
+end

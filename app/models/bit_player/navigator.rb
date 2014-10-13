@@ -55,9 +55,9 @@ module BitPlayer
     end
 
     def fetch_previous_content
-      if previous_content?
-        @status.decrement_content_position
-      end
+      return unless previous_content?
+
+      @status.decrement_content_position
     end
 
     def previous_content?

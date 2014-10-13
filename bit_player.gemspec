@@ -24,4 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "spring"
   s.add_development_dependency "redcarpet", "~> 2.3"
   s.add_development_dependency "rspec-rails", "~> 3.0.1"
+  s.add_development_dependency "rubocop", "~> 0.25"
+  s.add_development_dependency "brakeman"
 end
