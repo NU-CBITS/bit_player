@@ -13,7 +13,6 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-
 gem "bit_core",
-    tag: "1.3.1",
+    tag: "1.3.2",
     git: "https://github.com/cbitstech/bit_core.git"
