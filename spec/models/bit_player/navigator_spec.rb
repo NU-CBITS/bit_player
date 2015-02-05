@@ -21,7 +21,7 @@ describe BitPlayer::Navigator do
   let(:nav) { BitPlayer::Navigator.new(participant) }
 
   before do
-    allow(arm).to receive_message_chain(:tools, :find_by_title)
+    allow(arm).to receive_message_chain(:bit_core_tools, :find_by_title)
       .and_return(double("tool", id: 1))
   end
 

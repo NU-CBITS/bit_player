@@ -86,7 +86,7 @@ module BitPlayer
       arm = @participant.active_group.arm
 
       module_attrs = {
-        bit_core_tool_id: arm.tools.find_by_title(context).try(:id),
+        bit_core_tool_id: arm.bit_core_tools.find_by_title(context).try(:id),
         position: module_position
       }
 
