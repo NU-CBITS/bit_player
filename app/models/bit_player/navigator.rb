@@ -83,9 +83,10 @@ module BitPlayer
 
     def current_module
       @current_module ||= nil
+      arm = @participant.active_group.arm
 
       module_attrs = {
-        bit_core_tool_id: BitCore::Tool.find_by_title(context).try(:id),
+        bit_core_tool_id: arm.tools.find_by_title(context).try(:id),
         position: module_position
       }
 

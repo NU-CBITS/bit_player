@@ -11,13 +11,17 @@ describe BitPlayer::Navigator do
       content_position: 3
     )
   end
-  let(:participant) { double("participant", navigation_status: status) }
+  let(:arm) { double("arm") }
+  let(:group) { double("group", arm: arm) }
+  let(:participant) do
+    double("participant", navigation_status: status, active_group: group)
+  end
   let(:view_context) { double("context", current_participant: participant) }
   let(:provider) { double("provider") }
   let(:nav) { BitPlayer::Navigator.new(participant) }
 
   before do
-    expect(BitCore::Tool).to receive(:find_by_title)
+    allow(arm).to receive_message_chain(:tools, :find_by_title)
       .and_return(double("tool", id: 1))
   end
 
