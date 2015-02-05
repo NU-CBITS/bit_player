@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    bit_player (0.4.7)
+    bit_player (0.4.8)
       rails (~> 4.1)
 
 GEM
