@@ -7,6 +7,9 @@ AllCops:
     - vendor/**/*
     - Rakefile
 
+AbcSize:
+  Max: 20
+
 AccessorMethodName:
   Exclude:
     - app/**/*
