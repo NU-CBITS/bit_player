@@ -1,3 +1,6 @@
+## 0.4.9 - 2014-02-06
+ * updated bitcore version to 1.4.0
+
 ## 0.4.8 - 2014-02-05
  * update Rubocop and Brakeman gems
  * scope default Tool by Participant's active Arm

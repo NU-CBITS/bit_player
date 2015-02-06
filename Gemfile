@@ -14,5 +14,5 @@ gemspec
 # gem 'debugger'
 
 gem "bit_core",
-    tag: "1.3.6",
+    tag: "1.4.0",
     git: "https://github.com/cbitstech/bit_core.git"
