@@ -24,7 +24,7 @@ describe BitPlayer::Navigator do
 
     before do
       allow(arm).to receive_message_chain(:bit_core_tools, :find_by_title)
-                      .and_return(double("tool", id: 1))
+        .and_return(double("tool", id: 1))
     end
 
     it "should render the content from the current provider" do
@@ -50,7 +50,7 @@ describe BitPlayer::Navigator do
 
     before do
       allow(arm).to receive_message_chain(:bit_core_tools, :find_by_title)
-                      .and_return(double("tool", id: 1))
+        .and_return(double("tool", id: 1))
     end
 
     it "should initialize context if content_position and "\
