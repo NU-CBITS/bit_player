@@ -45,9 +45,11 @@ module BitPlayer
     end
 
     def fetch_next_content
-      if current_content_provider.exists?(content_position + 1)
+      if content_position &&
+         current_content_provider.exists?(content_position + 1)
         @status.increment_content_position
-      elsif current_module.provider_exists?(provider_position + 1)
+      elsif provider_position &&
+            current_module.provider_exists?(provider_position + 1)
         @status.increment_provider_position
       else
         initialize_context(context)
