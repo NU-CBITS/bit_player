@@ -17,12 +17,9 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.1"
-
   s.add_development_dependency "pg", "~> 0.17"
   s.add_development_dependency "spring"
-  s.add_development_dependency "redcarpet", "~> 2.3"
-  s.add_development_dependency "rspec-rails", "~> 3.0.1"
+  s.add_development_dependency "rspec-rails", "~> 3.5.0.beta3"
   s.add_development_dependency "rubocop", "~> 0.25"
   s.add_development_dependency "brakeman"
 end

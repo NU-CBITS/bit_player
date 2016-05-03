@@ -13,6 +13,7 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem "bit_core",
-    tag: "1.4.0",
-    git: "https://github.com/cbitstech/bit_core.git"
+gem "bit_core", "~> 1.4.6"
+gem "actionpack", "~> 5.0.0.beta4"
+gem "activerecord", "~> 5.0.0.beta4"
+gem "railties", "~> 5.0.0.beta4"

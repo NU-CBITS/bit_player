@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gemspec path: ".."
+
+gem "bit_core", "~> 2.0.0.beta1"
