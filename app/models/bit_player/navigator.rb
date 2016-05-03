@@ -77,7 +77,8 @@ module BitPlayer
       @status.provider_position = 1
       if options[:provider_id]
         @status.provider_position = content_module.content_providers
-          .find(options[:provider_id]).position
+                                                  .find(options[:provider_id])
+                                                  .position
       end
       @status.content_position = [options[:content_position].to_i, 1].max
       @status.save

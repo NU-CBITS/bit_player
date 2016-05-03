@@ -12,8 +12,9 @@ module BitPlayer
         end
 
         def self.source_class
-          @source_class || fail("Classes inheriting from #{ self } must define
-                                a source class with `data_class <class>`")
+          @source_class || raise("Classes inheriting from #{self} must " \
+                                 "define a source class with " \
+                                 "`data_class <class>`")
         end
 
         def self.show_nav_link
@@ -30,7 +31,7 @@ module BitPlayer
 
         def self.view_type(type)
           unless %w( show index ).include?(type)
-            fail("view type must be one of 'show', 'index'")
+            raise "view type must be one of 'show', 'index'"
           end
           @view_type = type
         end
@@ -45,7 +46,7 @@ module BitPlayer
       end
 
       def template
-        "#{ plural_name }/#{ self.class.get_view_type }"
+        "#{plural_name}/#{self.class.get_view_type}"
       end
 
       private
