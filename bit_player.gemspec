@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = BitPlayer::VERSION
   s.authors     = ["Eric Carty-Fickes"]
   s.email       = ["ericcf@northwestern.edu"]
-  s.homepage    = "https://github.com/nupmmarkbegale/bit_player"
+  s.homepage    = "https://github.com/NU-CBITS/bit_player"
   s.summary     = "A Rails engine for presenting a BIT web application"
   s.description = "A Rails engine for presenting a BIT web application"
 
