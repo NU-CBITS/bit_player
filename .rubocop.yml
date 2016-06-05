@@ -7,6 +7,10 @@ AllCops:
     - spec/dummy/**/*
     - vendor/**/*
     - Rakefile
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
 
 AbcSize:
   Max: 20

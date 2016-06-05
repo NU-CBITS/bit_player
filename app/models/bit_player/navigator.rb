@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "bit_core"
 
 module BitPlayer
@@ -6,6 +7,8 @@ module BitPlayer
     RenderOptions = Struct.new(
       :view_context, :app_context, :position, :participant
     )
+
+    delegate :show_nav_link?, to: :current_content_provider
 
     def initialize(participant)
       @participant = participant
@@ -34,10 +37,6 @@ module BitPlayer
       )
 
       current_content_provider.render_current(options)
-    end
-
-    def show_nav_link?
-      current_content_provider.show_nav_link?
     end
 
     def current_content_provider
@@ -94,7 +93,7 @@ module BitPlayer
       }
 
       if current_module_stale?
-        @current_module = BitCore::ContentModule.where(module_attrs).first
+        @current_module = BitCore::ContentModule.find_by(module_attrs)
       end
 
       @current_module ||= BitCore::ContentModule.new(module_attrs)
