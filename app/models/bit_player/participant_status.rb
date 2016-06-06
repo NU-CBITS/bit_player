@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module BitPlayer
   # Persistent data representing the Participant's navigation state.
   class ParticipantStatus < ActiveRecord::Base
