@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg", "~> 0.17"
   s.add_development_dependency "spring"
   s.add_development_dependency "rspec-rails", "~> 3.5.0.beta3"
-  s.add_development_dependency "rubocop", "~> 0.25"
+  s.add_development_dependency "rubocop"
   s.add_development_dependency "brakeman"
 end
